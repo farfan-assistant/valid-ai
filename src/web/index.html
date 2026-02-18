@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valid.ai — Instant SaaS Idea Validator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header>
+      <div class="logo">
+        <span class="logo-icon">◆</span>
+        <span class="logo-text">Valid<span class="accent">.ai</span></span>
+      </div>
+      <p class="tagline">Validate your SaaS idea in 30 seconds</p>
+    </header>
+
+    <!-- Input Section -->
+    <main>
+      <section id="input-section" class="card">
+        <h2>Describe Your Idea</h2>
+        <p class="hint">Be specific: What does it do? Who is it for? What problem does it solve?</p>
+        <textarea id="idea-input" placeholder="Example: A Chrome extension that automatically summarizes Terms & Conditions and Privacy Policies using AI, highlighting key risks and unusual clauses before you agree to them." rows="5" maxlength="5000"></textarea>
+        <div class="input-footer">
+          <span id="char-count" class="char-count">0 / 5000</span>
+          <button id="validate-btn" onclick="submitIdea()">
+            <span class="btn-text">Validate Idea</span>
+            <span class="btn-loading" style="display:none">Analyzing...</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Loading State -->
+      <section id="loading-section" class="card" style="display:none">
+        <div class="loading">
+          <div class="spinner"></div>
+          <h3>Analyzing your idea...</h3>
+          <p>Running market analysis, competition research, and viability scoring</p>
+        </div>
+      </section>
+
+      <!-- Error State -->
+      <section id="error-section" class="card error" style="display:none">
+        <h3>⚠️ Validation Failed</h3>
+        <p id="error-message"></p>
+        <button onclick="resetForm()">Try Again</button>
+      </section>
+
+      <!-- Results Section -->
+      <section id="results-section" style="display:none">
+        <!-- Score Banner -->
+        <div id="score-banner" class="card score-banner">
+          <div class="score-circle">
+            <span id="score-value" class="score-value">0</span>
+            <span class="score-label">/ 100</span>
+          </div>
+          <div class="score-details">
+            <h2 id="verdict"></h2>
+            <p id="summary"></p>
+            <p id="one-liner" class="one-liner"></p>
+          </div>
+        </div>
+
+        <!-- Score Breakdown -->
+        <div class="card">
+          <h3>Score Breakdown</h3>
+          <div id="score-breakdown" class="breakdown-grid"></div>
+        </div>
+
+        <!-- Market Analysis -->
+        <div class="card">
+          <h3>📊 Market Analysis</h3>
+          <div id="market-analysis" class="detail-grid"></div>
+        </div>
+
+        <!-- Competition -->
+        <div class="card">
+          <h3>🏆 Competition Landscape</h3>
+          <div id="competition"></div>
+        </div>
+
+        <!-- Target Audience -->
+        <div class="card">
+          <h3>🎯 Target Audience</h3>
+          <div id="target-audience" class="detail-grid"></div>
+        </div>
+
+        <!-- Revenue Model -->
+        <div class="card">
+          <h3>💰 Revenue Model</h3>
+          <div id="revenue-model" class="detail-grid"></div>
+        </div>
+
+        <!-- Risks -->
+        <div class="card">
+          <h3>⚠️ Risk Assessment</h3>
+          <div id="risks"></div>
+        </div>
+
+        <!-- Next Steps -->
+        <div class="card">
+          <h3>✅ Next Steps</h3>
+          <div id="next-steps"></div>
+        </div>
+
+        <!-- Actions -->
+        <div class="actions">
+          <button onclick="resetForm()" class="btn-secondary">Validate Another Idea</button>
+        </div>
+      </section>
+
+      <!-- History Section -->
+      <section id="history-section" class="card">
+        <h3>Recent Validations</h3>
+        <div id="history-list"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Valid.ai — Ship ideas, not guesses</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

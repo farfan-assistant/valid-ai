@@ -1,0 +1,21 @@
+{
+  "name": "valid-ai",
+  "version": "0.1.0",
+  "description": "Instant SaaS idea validator — AI-powered market analysis, competition research, and validation scoring",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "node --test test/*.test.js"
+  },
+  "keywords": ["saas", "validation", "ai", "startup", "ideas"],
+  "author": "farfan-assistant",
+  "license": "MIT",
+  "dependencies": {
+    "better-sqlite3": "^11.0.0",
+    "dotenv": "^16.4.0",
+    "express": "^4.18.0",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {}
+}
